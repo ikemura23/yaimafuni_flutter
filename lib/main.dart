@@ -1,62 +1,50 @@
 import 'package:flutter/material.dart';
 
-void main() {
-  runApp(new MyApp());
-}
+void main() => runApp(new MyApp());
 
 class MyApp extends StatelessWidget {
+  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Generated App',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-        primaryColor: Color(0xFF2196f3),
-        accentColor: Color(0xFF2196f3),
-        canvasColor: Color(0xFFfafafa),
-      ),
-      home: MyHomePage(),
+    return new MaterialApp(
+      title: 'Flutter Demo',
+      theme: new ThemeData(primaryColor: Color.fromRGBO(58, 66, 86, 1.0)),
+      home: new ListPage(title: 'Lessons'),
     );
   }
 }
 
-class MyHomePage extends StatefulWidget {
-  MyHomePage({Key key}) : super(key: key);
+/*
+ * リスト
+ */
+class ListPage extends StatefulWidget {
+  ListPage({Key key, this.title}) : super(key: key);
+
+  final String title;
 
   @override
-  _MyHomePageState createState() => _MyHomePageState();
+  _ListPageState createState() => _ListPageState();
 }
 
-class _MyHomePageState extends State<MyHomePage> {
+class _ListPageState extends State<ListPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('やいまふに'),
-      ),
-      body: SingleChildScrollView(
-        scrollDirection: Axis.vertical,
-        padding: EdgeInsets.all(16.0),
-        child: Column(
-            mainAxisAlignment: MainAxisAlignment.start,
-            mainAxisSize: MainAxisSize.max,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: <Widget>[
-              Card(
-                child: Column(
-                  mainAxisSize: MainAxisSize.min,
-                  children: <Widget>[
-                    const ListTile(
-//                      leading: Icon(Icons.album),
-                      title: Text('The Enchanted Nightingale'),
-                      subtitle:
-                          Text('Music by Julie Gable. Lyrics by Sidney Stein.'),
-                    ),
-                  ],
-                ),
-              ),
-            ]),
-      ),
+      backgroundColor: Color.fromRGBO(76, 175, 202, 1.0),
+      appBar: topAppBar,
+      body: ,
     );
   }
 }
+
+final topAppBar = AppBar(
+  elevation: 0.1,
+  backgroundColor: Color.fromRGBO(76, 175, 202, 1.0),
+  title: Text("やいまふに"),
+  actions: <Widget>[
+    IconButton(
+      icon: Icon(Icons.list),
+      onPressed: () {},
+    )
+  ],
+);
