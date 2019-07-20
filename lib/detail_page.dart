@@ -17,114 +17,61 @@ class DetailPage extends StatelessWidget {
       ),
     );
 
-    final coursePrice = Container(
-      padding: const EdgeInsets.all(7.0),
-      decoration: new BoxDecoration(
-          border: new Border.all(color: Colors.white),
-          borderRadius: BorderRadius.circular(5.0)),
-      child: new Text(
-        "\$" + status.price.toString(),
-        style: TextStyle(color: Colors.white),
-      ),
-    );
-
-    final topContentText = Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: <Widget>[
-        SizedBox(height: 120.0),
-        Icon(
-          Icons.directions_car,
-          color: Colors.white,
-          size: 40.0,
-        ),
-        Container(
-          width: 90.0,
-          child: new Divider(color: Colors.green),
-        ),
-        SizedBox(height: 10.0),
-        Text(
-          status.title,
-          style: TextStyle(color: Colors.white, fontSize: 45.0),
-        ),
-        SizedBox(height: 30.0),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.start,
-          children: <Widget>[
-            Expanded(flex: 1, child: levelIndicator),
-            Expanded(
-                flex: 6,
-                child: Padding(
-                    padding: EdgeInsets.only(left: 10.0),
-                    child: Text(
-                      status.level,
-                      style: TextStyle(color: Colors.white),
-                    ))),
-            Expanded(flex: 1, child: coursePrice)
-          ],
-        ),
-      ],
-    );
-
-    final topContent = Stack(
-      children: <Widget>[
-        Container(
-            padding: EdgeInsets.only(left: 10.0),
-            height: MediaQuery.of(context).size.height * 0.5,
-            decoration: new BoxDecoration(
-              image: new DecorationImage(
-                image: new AssetImage("drive-steering-wheel.jpg"),
-                fit: BoxFit.cover,
-              ),
-            )),
-        Container(
-          height: MediaQuery.of(context).size.height * 0.5,
-          padding: EdgeInsets.all(40.0),
-          width: MediaQuery.of(context).size.width,
-          decoration: BoxDecoration(color: Color.fromRGBO(58, 66, 86, .9)),
-          child: Center(
-            child: topContentText,
+    final mainPage = Container(
+      color: Colors.yellow,
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        mainAxisAlignment: MainAxisAlignment.spaceAround,
+        children: <Widget>[
+          Container(
+            // A fixed-height child.
+            color: const Color(0xff808000), // Yellow
+            height: 120.0,
           ),
-        ),
-        Positioned(
-          left: 8.0,
-          top: 60.0,
-          child: InkWell(
-            onTap: () {
-              Navigator.pop(context);
-            },
-            child: Icon(Icons.arrow_back, color: Colors.white),
+          Container(
+            // Another fixed-height child.
+            color: const Color(0xff008000), // Green
+            height: 120.0,
           ),
-        )
-      ],
-    );
-
-    final bottomContentText = Text(
-      status.content,
-      style: TextStyle(fontSize: 18.0),
-    );
-    final readButton = Container(
-        padding: EdgeInsets.symmetric(vertical: 16.0),
-        width: MediaQuery.of(context).size.width,
-        child: RaisedButton(
-          onPressed: () => {},
-          color: Color.fromRGBO(58, 66, 86, 1.0),
-          child:
-              Text("TAKE THIS LESSON", style: TextStyle(color: Colors.white)),
-        ));
-    final bottomContent = Container(
-      width: MediaQuery.of(context).size.width,
-      padding: EdgeInsets.all(40.0),
-      child: Center(
-        child: Column(
-          children: <Widget>[bottomContentText, readButton],
-        ),
+        ],
       ),
     );
 
     return Scaffold(
-      body: Column(
-        children: <Widget>[topContent, bottomContent],
+        body: DefaultTabController(
+      length: 2,
+      child: Scaffold(
+        appBar: AppBar(
+          title: Text("西表島 上原航路"),
+          backgroundColor: Color.fromRGBO(76, 175, 202, 1.0),
+          bottom: TabBar(
+            indicatorColor: Colors.orange,
+            tabs: <Widget>[
+              Tab(
+                text: "安栄観光",
+              ),
+              Tab(
+                text: "八重山観光\nフェリー",
+              ),
+            ],
+          ),
+        ),
+        body: TabBarView(children: <Widget>[
+          mainPage,
+          Container(
+            color: Colors.orange,
+          ),
+        ]),
       ),
-    );
+    ));
   }
 }
+
+/// タイトル
+final topAppBar = AppBar(
+  elevation: 0.1,
+  backgroundColor: Color.fromRGBO(76, 175, 202, 1.0),
+  title: Text(titleText),
+);
+
+const titleText = "やいまふに";

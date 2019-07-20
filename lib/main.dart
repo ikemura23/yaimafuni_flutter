@@ -47,7 +47,7 @@ class _ListPageState extends State<ListPage> {
         mainAxisSize: MainAxisSize.min,
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
-          Icon(icon, color: color), // 3.1.1
+          Icon(icon, color: Theme.of(context).primaryColor),
           Container(
             // 3.1.2
             margin: const EdgeInsets.only(top: 8.0),
@@ -126,8 +126,8 @@ class _ListPageState extends State<ListPage> {
           margin: new EdgeInsets.symmetric(horizontal: 10.0, vertical: 6.0),
           child: Container(
             decoration: BoxDecoration(color: Colors.white),
-//            child: makeListTile(status),
-            child: createListRow(),
+            child: makeListTile(status),
+//            child: createListRow(),
           ),
         );
 
