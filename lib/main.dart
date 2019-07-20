@@ -52,30 +52,30 @@ class _ListPageState extends State<ListPage> {
           ),
           title: Text(
             lesson.title,
-            style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+            style: TextStyle(color: Colors.black54, fontWeight: FontWeight.bold),
           ),
           subtitle: Row(
             children: <Widget>[
-              Expanded(
-                  flex: 1,
-                  child: Container(
-                    // tag: 'hero',
-                    child: LinearProgressIndicator(
-                        backgroundColor: Color.fromRGBO(209, 224, 224, 0.2),
-                        value: lesson.indicatorValue,
-                        valueColor: AlwaysStoppedAnimation(Colors.green)),
-                  )),
+//              Expanded(
+//                  flex: 1,
+//                  child: Container(
+//                    // tag: 'hero',
+////                    child: LinearProgressIndicator(
+////                        backgroundColor: Color.fromRGBO(209, 224, 224, 0.2),
+////                        value: lesson.indicatorValue,
+////                        valueColor: AlwaysStoppedAnimation(Colors.green)),
+//                  )),
               Expanded(
                 flex: 4,
                 child: Padding(
-                    padding: EdgeInsets.only(left: 10.0),
+                    padding: EdgeInsets.only(left: 0.0),
                     child: Text(lesson.level,
-                        style: TextStyle(color: Colors.white))),
+                        style: TextStyle(color: Colors.black45))),
               )
             ],
           ),
           trailing:
-              Icon(Icons.keyboard_arrow_right, color: Colors.white, size: 30.0),
+              Icon(Icons.keyboard_arrow_right, color: Colors.black54, size: 30.0),
           onTap: () {
             Navigator.push(
                 context,
@@ -89,7 +89,7 @@ class _ListPageState extends State<ListPage> {
           elevation: 8.0,
           margin: new EdgeInsets.symmetric(horizontal: 10.0, vertical: 6.0),
           child: Container(
-            decoration: BoxDecoration(color: Color.fromRGBO(64, 75, 96, .9)),
+            decoration: BoxDecoration(color: Colors.white),
             child: makeListTile(lesson),
           ),
         );
@@ -99,7 +99,7 @@ class _ListPageState extends State<ListPage> {
       child: ListView.builder(
         scrollDirection: Axis.vertical,
         shrinkWrap: true,
-        itemCount: 7,
+        itemCount: lessons.length,
         itemBuilder: (BuildContext context, int index) {
           return makeCard(lessons[index]);
         },
