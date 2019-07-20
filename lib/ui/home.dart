@@ -31,7 +31,7 @@ final homeStatus = SingleChildScrollView(
                       fontFamily: "Roboto"),
                 )
               ]),
-
+          Divider(color: Colors.grey),
           /// 2行目、竹富島
           createListRow(),
           Row(
