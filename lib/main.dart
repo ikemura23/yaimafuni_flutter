@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_yaimafuni/detail_page.dart';
-import 'package:flutter_yaimafuni/ui/home.dart';
 import 'package:flutter_yaimafuni/model/liner_status.dart';
+import 'package:flutter_yaimafuni/ui/home.dart';
 
 void main() => runApp(new MyApp());
 
@@ -40,41 +40,6 @@ class _ListPageState extends State<ListPage> {
 
   @override
   Widget build(BuildContext context) {
-
-    // リスト行の作成
-    Widget _buildButtonColumn(IconData icon, String label) {
-      final color = Theme.of(context).primaryColor;
-      return Column(
-        mainAxisSize: MainAxisSize.min,
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: <Widget>[
-          Icon(icon, color: Theme.of(context).primaryColor),
-          Container(
-            // 3.1.2
-            margin: const EdgeInsets.only(top: 8.0),
-            child: Text(
-              label,
-              style: TextStyle(
-                  fontSize: 12.0, fontWeight: FontWeight.w400, color: color),
-            ),
-          )
-        ],
-      );
-    }
-
-    Widget createListRow() => Container(
-        margin: const EdgeInsets.fromLTRB(16.0, 0.0, 16.0, 16.0),
-        child: Row(
-          // 1行目
-          crossAxisAlignment: CrossAxisAlignment.start,
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: <Widget>[
-            _buildButtonColumn(Icons.call, "CALL"), // 2.1
-            _buildButtonColumn(Icons.near_me, "ROUTE"), // 2.2
-            _buildButtonColumn(Icons.share, "SHARE") // 2.3
-          ],
-        ));
-
     /// リストタイトル
     ListTile makeListTile(Status status) => ListTile(
           contentPadding:
@@ -93,15 +58,6 @@ class _ListPageState extends State<ListPage> {
           ),
           subtitle: Row(
             children: <Widget>[
-//              Expanded(
-//                  flex: 1,
-//                  child: Container(
-//                    // tag: 'hero',
-////                    child: LinearProgressIndicator(
-////                        backgroundColor: Color.fromRGBO(209, 224, 224, 0.2),
-////                        value: lesson.indicatorValue,
-////                        valueColor: AlwaysStoppedAnimation(Colors.green)),
-//                  )),
               Expanded(
                 flex: 4,
                 child: Padding(
@@ -128,27 +84,13 @@ class _ListPageState extends State<ListPage> {
           child: Container(
             decoration: BoxDecoration(color: Colors.white),
             child: makeListTile(status),
-//            child: createListRow(),
           ),
         );
-
-    /// ボディ
-    final makeBody = Container(
-      child: ListView.builder(
-        scrollDirection: Axis.vertical,
-        shrinkWrap: true,
-        itemCount: statuses.length,
-        itemBuilder: (BuildContext context, int index) {
-          return makeCard(statuses[index]);
-        },
-      ),
-    );
 
     return Scaffold(
       backgroundColor: Color.fromRGBO(76, 175, 202, 1.0),
       appBar: topAppBar,
       body: homeStatus,
-//      bottomNavigationBar: makeBottom,
     );
   }
 }
