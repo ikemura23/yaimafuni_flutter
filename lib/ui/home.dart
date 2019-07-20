@@ -17,8 +17,11 @@ final homeStatus = SingleChildScrollView(
               mainAxisSize: MainAxisSize.max,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: <Widget>[
-                Icon(Icons.directions_boat,
-                    color: Color(0xFF000000), size: 48.0),
+                Padding(
+                  padding: EdgeInsets.all(8.0),
+                  child: Icon(Icons.directions_boat,
+                      color: Color(0xFF000000), size: 24.0),
+                ),
                 Text(
                   "運行情報",
                   style: TextStyle(
