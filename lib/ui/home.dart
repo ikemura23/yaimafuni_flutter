@@ -54,7 +54,7 @@ final makeCard = Card(
   elevation: 8.0,
   margin: new EdgeInsets.symmetric(horizontal: 10.0, vertical: 6.0),
   child: Container(
-    decoration: BoxDecoration(color: Color.fromRGBO(64, 75, 96, .9)),
+    decoration: BoxDecoration(color: Colors.white),
     child: makeListTile,
   ),
 );
@@ -67,7 +67,7 @@ final makeListTile = ListTile(
       decoration: new BoxDecoration(
           border: new Border(
               right: new BorderSide(width: 1.0, color: Colors.white24))),
-      child: Icon(Icons.autorenew, color: Colors.white),
+      child: Icon(Icons.autorenew, color: Colors.white), //todo アイコンを動的に変更
     ),
     title: Text(
       "Introduction to Driving",
