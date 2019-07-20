@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_yaimafuni/detail_page.dart';
+import 'package:flutter_yaimafuni/ui/home.dart';
 import 'package:flutter_yaimafuni/model/liner_status.dart';
 
 void main() => runApp(new MyApp());
@@ -146,7 +147,7 @@ class _ListPageState extends State<ListPage> {
     return Scaffold(
       backgroundColor: Color.fromRGBO(76, 175, 202, 1.0),
       appBar: topAppBar,
-      body: makeBody,
+      body: homeStatus,
 //      bottomNavigationBar: makeBottom,
     );
   }

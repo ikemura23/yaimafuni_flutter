@@ -1,114 +1,123 @@
 import 'package:flutter/material.dart';
 
-/*
- * ホーム画面
- */
-class ListPage extends StatefulWidget {
-  ListPage({Key key, this.title}) : super(key: key);
+final homeStatus = SingleChildScrollView(
+  scrollDirection: Axis.vertical,
+  padding: EdgeInsets.all(0.0),
+  child: Card(
+    elevation: 8.0,
+    margin: EdgeInsets.symmetric(horizontal: 10.0, vertical: 6.0),
+    child: Column(
+        mainAxisAlignment: MainAxisAlignment.start,
+        mainAxisSize: MainAxisSize.max,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: <Widget>[
+          // １行目、タイトル
+          Row(
+              mainAxisAlignment: MainAxisAlignment.start,
+              mainAxisSize: MainAxisSize.max,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: <Widget>[
+                Icon(Icons.directions_boat,
+                    color: Color(0xFF000000), size: 48.0),
+                Text(
+                  "運行情報",
+                  style: TextStyle(
+                      fontSize: 12.0,
+                      color: Color(0xFF000000),
+                      fontWeight: FontWeight.w200,
+                      fontFamily: "Roboto"),
+                )
+              ]),
 
-  final String title;
-
-  @override
-  _ListPageState createState() => _ListPageState();
-}
-
-class _ListPageState extends State<ListPage> {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Color.fromRGBO(76, 175, 202, 1.0),
-      appBar: topAppBar,
-      body: makeBody,
-      bottomNavigationBar: makeBottom,
-    );
-  }
-}
-
-/// タイトル
-final topAppBar = AppBar(
-  elevation: 0.1,
-  backgroundColor: Color.fromRGBO(76, 175, 202, 1.0),
-  title: Text("やいまふに"),
-  actions: <Widget>[
-    IconButton(
-      icon: Icon(Icons.list),
-      onPressed: () {},
-    )
-  ],
-);
-
-/// ボディ
-final makeBody = Container(
-  child: ListView.builder(
-    scrollDirection: Axis.vertical,
-    shrinkWrap: true,
-    itemCount: 10,
-    itemBuilder: (BuildContext context, int index) {
-      return makeCard;
-    },
+          /// 2行目、竹富島
+          createListRow(),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.start,
+            mainAxisSize: MainAxisSize.max,
+            crossAxisAlignment: CrossAxisAlignment.center,
+          ),
+          Row(
+              mainAxisAlignment: MainAxisAlignment.start,
+              mainAxisSize: MainAxisSize.max,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: <Widget>[
+                Row(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    mainAxisSize: MainAxisSize.max,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: <Widget>[
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        mainAxisSize: MainAxisSize.max,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                      )
+                    ])
+              ]),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.start,
+            mainAxisSize: MainAxisSize.max,
+            crossAxisAlignment: CrossAxisAlignment.center,
+          )
+        ]),
   ),
 );
 
-/// カード
-final makeCard = Card(
-  elevation: 8.0,
-  margin: new EdgeInsets.symmetric(horizontal: 10.0, vertical: 6.0),
-  child: Container(
-    decoration: BoxDecoration(color: Colors.white),
-    child: makeListTile,
-  ),
-);
+// リスト行の作成
+Widget _buildButtonColumn(String label, String status) {
+  return Column(
+    mainAxisSize: MainAxisSize.min,
+    mainAxisAlignment: MainAxisAlignment.center,
+    children: <Widget>[
+      Container(
+        margin: EdgeInsets.only(top: 8.0),
+        child: Text(
+          label,
+          style: TextStyle(fontSize: 12.0, fontWeight: FontWeight.w400),
+        ),
+      ),
+      Container(
+        margin: EdgeInsets.only(top: 8.0),
+        decoration: BoxDecoration(
+          color: Colors.indigo,
+          borderRadius: BorderRadius.only(
+            topLeft: Radius.circular(2.0),
+            topRight: Radius.circular(2.0),
+            bottomLeft: Radius.circular(2.0),
+            bottomRight: Radius.circular(2.0),
+          ),
+        ),
+        padding: EdgeInsets.all(4.0),
+        child: Text(
+          status,
+          style: TextStyle(
+              fontSize: 12.0, color: Colors.white, fontWeight: FontWeight.w400),
+        ),
+      ),
+    ],
+  );
+}
 
-/// リストタイトル
-final makeListTile = ListTile(
-    contentPadding: EdgeInsets.symmetric(horizontal: 20.0, vertical: 10.0),
-    leading: Container(
-      padding: EdgeInsets.only(right: 12.0),
-      decoration: new BoxDecoration(
-          border: new Border(
-              right: new BorderSide(width: 1.0, color: Colors.white24))),
-      child: Icon(Icons.autorenew, color: Colors.white), //todo アイコンを動的に変更
-    ),
-    title: Text(
-      "Introduction to Driving",
-      style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
-    ),
-    // subtitle: Text("Intermediate", style: TextStyle(color: Colors.white)),
-
-    subtitle: Row(
-      children: <Widget>[
-        Icon(Icons.linear_scale, color: Colors.yellowAccent),
-        Text(" Intermediate", style: TextStyle(color: Colors.white))
-      ],
-    ),
-    trailing:
-        Icon(Icons.keyboard_arrow_right, color: Colors.white, size: 30.0));
-
-/// ボトムナビバー
-final makeBottom = Container(
-  height: 55.0,
-  child: BottomAppBar(
-    color: Color.fromRGBO(58, 66, 86, 1.0),
+Widget createListRow() => Container(
+    margin: const EdgeInsets.fromLTRB(16.0, 0.0, 16.0, 16.0),
     child: Row(
-      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+      // 1行目
+      mainAxisAlignment: MainAxisAlignment.center,
+      crossAxisAlignment: CrossAxisAlignment.center,
       children: <Widget>[
-        IconButton(
-          icon: Icon(Icons.home, color: Colors.white),
-          onPressed: () {},
+        // 1
+        Expanded(
+          flex: 1,
+          child: Align(alignment: Alignment.center, child: Text("竹富島航路")),
         ),
-        IconButton(
-          icon: Icon(Icons.blur_on, color: Colors.white),
-          onPressed: () {},
+        // 2
+        Expanded(
+          flex: 2,
+          child: _buildButtonColumn("安栄観光", "通常運行"),
         ),
-        IconButton(
-          icon: Icon(Icons.hotel, color: Colors.white),
-          onPressed: () {},
+        // 3
+        Expanded(
+          flex: 2,
+          child: _buildButtonColumn("八観フェ", "通常運行"),
         ),
-        IconButton(
-          icon: Icon(Icons.account_box, color: Colors.white),
-          onPressed: () {},
-        )
       ],
-    ),
-  ),
-);
+    ));
