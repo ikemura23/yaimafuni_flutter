@@ -8,32 +8,48 @@ class DetailPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final levelIndicator = Container(
-      child: Container(
-        child: LinearProgressIndicator(
-            backgroundColor: Color.fromRGBO(209, 224, 224, 0.2),
-            value: status.indicatorValue,
-            valueColor: AlwaysStoppedAnimation(Colors.green)),
-      ),
-    );
-
-    final mainPage = Container(
-      color: Colors.yellow,
-      child: Column(
-        mainAxisSize: MainAxisSize.min,
-        mainAxisAlignment: MainAxisAlignment.spaceAround,
-        children: <Widget>[
-          Container(
-            // A fixed-height child.
-            color: const Color(0xff808000), // Yellow
-            height: 120.0,
-          ),
-          Container(
-            // Another fixed-height child.
-            color: const Color(0xff008000), // Green
-            height: 120.0,
-          ),
-        ],
+    final mainPage = SingleChildScrollView(
+      scrollDirection: Axis.vertical,
+      padding: EdgeInsets.all(0.0),
+      child: Card(
+        elevation: 8.0,
+        margin: EdgeInsets.symmetric(horizontal: 10.0, vertical: 6.0),
+        child: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            mainAxisSize: MainAxisSize.max,
+            children: <Widget>[
+              Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  mainAxisSize: MainAxisSize.min,
+                  children: <Widget>[
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Text(
+                        "西表島航路",
+                        style: TextStyle(
+                          fontSize: 16.0,
+                          color: Colors.black87,
+                        ),
+                      ),
+                    ),
+                    Expanded(
+                        flex: 1,
+                        child: Align(
+                          alignment: Alignment.centerRight,
+                          child: Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: Text(
+                              "通常運行",
+                              style: TextStyle(
+                                fontSize: 16.0,
+                                color: Colors.black87,
+                              ),
+                            ),
+                          ),
+                        )),
+//                    new Expanded()
+                  ])
+            ]),
       ),
     );
 
