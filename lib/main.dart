@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-//import 'package:flutter_yaimafuni/ui/home.dart';
+import 'package:flutter_yaimafuni/model/lesson.dart';
 
 void main() => runApp(new MyApp());
 
@@ -28,6 +28,14 @@ class ListPage extends StatefulWidget {
 }
 
 class _ListPageState extends State<ListPage> {
+  List lessons;
+
+  @override
+  void initState() {
+    lessons = getLessons();
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -90,12 +98,7 @@ final makeListTile = ListTile(
     ),
     // subtitle: Text("Intermediate", style: TextStyle(color: Colors.white)),
 
-    subtitle: Row(
-      children: <Widget>[
-//        Icon(Icons.linear_scale, color: Colors.yellowAccent),
-        Text("通常運行", style: TextStyle(color: Colors.grey))
-      ],
-    ),
+    subtitle: Text("通常運行", style: TextStyle(color: Colors.grey)),
     trailing:
         Icon(Icons.keyboard_arrow_right, color: Colors.white, size: 30.0));
 
