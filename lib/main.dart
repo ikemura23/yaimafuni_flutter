@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_yaimafuni/detail_page.dart';
-import 'package:flutter_yaimafuni/model/lesson.dart';
+import 'package:flutter_yaimafuni/model/liner_status.dart';
 
 void main() => runApp(new MyApp());
 
@@ -11,7 +11,7 @@ class MyApp extends StatelessWidget {
     return new MaterialApp(
       title: 'やいまふに',
       theme: new ThemeData(primaryColor: Color.fromRGBO(58, 66, 86, 1.0)),
-      home: new ListPage(title: 'Lessons'),
+      home: new ListPage(title: 'Statuses'),
     );
   }
 }
@@ -29,18 +29,18 @@ class ListPage extends StatefulWidget {
 }
 
 class _ListPageState extends State<ListPage> {
-  List lessons;
+  List statuses;
 
   @override
   void initState() {
-    lessons = getLessons();
+    statuses = getStatuses();
     super.initState();
   }
 
   @override
   Widget build(BuildContext context) {
     /// リストタイトル
-    ListTile makeListTile(Lesson lesson) => ListTile(
+    ListTile makeListTile(Status status) => ListTile(
           contentPadding:
               EdgeInsets.symmetric(horizontal: 20.0, vertical: 10.0),
           leading: Container(
@@ -51,8 +51,9 @@ class _ListPageState extends State<ListPage> {
             child: Icon(Icons.autorenew, color: Colors.white),
           ),
           title: Text(
-            lesson.title,
-            style: TextStyle(color: Colors.black54, fontWeight: FontWeight.bold),
+            status.title,
+            style:
+                TextStyle(color: Colors.black54, fontWeight: FontWeight.bold),
           ),
           subtitle: Row(
             children: <Widget>[
@@ -69,28 +70,28 @@ class _ListPageState extends State<ListPage> {
                 flex: 4,
                 child: Padding(
                     padding: EdgeInsets.only(left: 0.0),
-                    child: Text(lesson.level,
+                    child: Text(status.level,
                         style: TextStyle(color: Colors.black45))),
               )
             ],
           ),
-          trailing:
-              Icon(Icons.keyboard_arrow_right, color: Colors.black54, size: 30.0),
+          trailing: Icon(Icons.keyboard_arrow_right,
+              color: Colors.black54, size: 30.0),
           onTap: () {
             Navigator.push(
                 context,
                 MaterialPageRoute(
-                    builder: (context) => DetailPage(lesson: lesson)));
+                    builder: (context) => DetailPage(status: status)));
           },
         );
 
     /// カード
-    Card makeCard(Lesson lesson) => Card(
+    Card makeCard(Status status) => Card(
           elevation: 8.0,
           margin: new EdgeInsets.symmetric(horizontal: 10.0, vertical: 6.0),
           child: Container(
             decoration: BoxDecoration(color: Colors.white),
-            child: makeListTile(lesson),
+            child: makeListTile(status),
           ),
         );
 
@@ -99,9 +100,9 @@ class _ListPageState extends State<ListPage> {
       child: ListView.builder(
         scrollDirection: Axis.vertical,
         shrinkWrap: true,
-        itemCount: lessons.length,
+        itemCount: statuses.length,
         itemBuilder: (BuildContext context, int index) {
-          return makeCard(lessons[index]);
+          return makeCard(statuses[index]);
         },
       ),
     );
