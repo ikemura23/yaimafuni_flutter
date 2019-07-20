@@ -5,7 +5,7 @@ final homeStatus = SingleChildScrollView(
   padding: EdgeInsets.all(0.0),
   child: Card(
     elevation: 8.0,
-    margin: EdgeInsets.symmetric(horizontal: 10.0, vertical: 6.0),
+    margin: EdgeInsets.symmetric(horizontal: 16.0, vertical: 6.0),
     child: Column(
         mainAxisAlignment: MainAxisAlignment.start,
         mainAxisSize: MainAxisSize.max,
@@ -32,35 +32,33 @@ final homeStatus = SingleChildScrollView(
                 )
               ]),
           Divider(color: Colors.grey),
-          /// 2行目、竹富島
-          createListRow(),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.start,
-            mainAxisSize: MainAxisSize.max,
-            crossAxisAlignment: CrossAxisAlignment.center,
-          ),
-          Row(
-              mainAxisAlignment: MainAxisAlignment.start,
-              mainAxisSize: MainAxisSize.max,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: <Widget>[
-                Row(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    mainAxisSize: MainAxisSize.max,
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: <Widget>[
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        mainAxisSize: MainAxisSize.max,
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                      )
-                    ])
-              ]),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.start,
-            mainAxisSize: MainAxisSize.max,
-            crossAxisAlignment: CrossAxisAlignment.center,
-          )
+
+          /// 2行目
+          createListRow("竹富島航路"),
+          Divider(color: Colors.grey),
+
+          /// 3行目
+          createListRow("小浜島航路"),
+          Divider(color: Colors.grey),
+
+          /// 4行目
+          createListRow("黒島航路"),
+          Divider(color: Colors.grey),
+
+          /// 5行目
+          createListRow("西表島 大原航路"),
+          Divider(color: Colors.grey),
+
+          /// 6行目
+          createListRow("西表島 上原航路"),
+          Divider(color: Colors.grey),
+
+          /// 7行目
+          createListRow("鳩間島航路"),
+          Divider(color: Colors.grey),
+
+          /// 8行目
+          createListRow("波照間島航路"),
         ]),
   ),
 );
@@ -100,7 +98,7 @@ Widget _buildButtonColumn(String label, String status) {
   );
 }
 
-Widget createListRow() => Container(
+Widget createListRow(String portName) => Container(
     margin: const EdgeInsets.fromLTRB(16.0, 0.0, 16.0, 16.0),
     child: Row(
       // 1行目
@@ -110,16 +108,16 @@ Widget createListRow() => Container(
         // 1
         Expanded(
           flex: 1,
-          child: Align(alignment: Alignment.center, child: Text("竹富島航路")),
+          child: Align(alignment: Alignment.centerLeft, child: Text(portName)),
         ),
         // 2
         Expanded(
-          flex: 2,
+          flex: 1,
           child: _buildButtonColumn("安栄観光", "通常運行"),
         ),
         // 3
         Expanded(
-          flex: 2,
+          flex: 1,
           child: _buildButtonColumn("八観フェ", "通常運行"),
         ),
       ],
