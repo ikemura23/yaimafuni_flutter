@@ -1,67 +1,69 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_yaimafuni/detail_page.dart';
+import 'package:flutter_yaimafuni/model/liner_status.dart';
 
-final homeStatus = SingleChildScrollView(
-  scrollDirection: Axis.vertical,
-  padding: EdgeInsets.all(0.0),
-  child: Card(
-    elevation: 8.0,
-    margin: EdgeInsets.symmetric(horizontal: 16.0, vertical: 6.0),
-    child: Column(
-        mainAxisAlignment: MainAxisAlignment.start,
-        mainAxisSize: MainAxisSize.max,
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: <Widget>[
-          // １行目、タイトル
-          Row(
-              mainAxisAlignment: MainAxisAlignment.start,
-              mainAxisSize: MainAxisSize.max,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: <Widget>[
-                Padding(
-                  padding: EdgeInsets.all(8.0),
-                  child: Icon(Icons.directions_boat,
-                      color: Color(0xFF000000), size: 24.0),
-                ),
-                Text(
-                  "運行情報",
-                  style: TextStyle(
-                      fontSize: 12.0,
-                      color: Color(0xFF000000),
-                      fontWeight: FontWeight.w200,
-                      fontFamily: "Roboto"),
-                )
-              ]),
-          Divider(color: Colors.grey),
-
-          /// 2行目
-          createListRow("竹富島航路"),
-          Divider(color: Colors.grey),
-
-          /// 3行目
-          createListRow("小浜島航路"),
-          Divider(color: Colors.grey),
-
-          /// 4行目
-          createListRow("黒島航路"),
-          Divider(color: Colors.grey),
-
-          /// 5行目
-          createListRow("西表島 大原航路"),
-          Divider(color: Colors.grey),
-
-          /// 6行目
-          createListRow("西表島 上原航路"),
-          Divider(color: Colors.grey),
-
-          /// 7行目
-          createListRow("鳩間島航路"),
-          Divider(color: Colors.grey),
-
-          /// 8行目
-          createListRow("波照間島航路"),
-        ]),
-  ),
-);
+//final homeStatus = SingleChildScrollView(
+//  scrollDirection: Axis.vertical,
+//  padding: EdgeInsets.all(0.0),
+//  child: Card(
+//    elevation: 8.0,
+//    margin: EdgeInsets.symmetric(horizontal: 16.0, vertical: 6.0),
+//    child: Column(
+//        mainAxisAlignment: MainAxisAlignment.start,
+//        mainAxisSize: MainAxisSize.max,
+//        crossAxisAlignment: CrossAxisAlignment.center,
+//        children: <Widget>[
+//          // １行目、タイトル
+//          Row(
+//              mainAxisAlignment: MainAxisAlignment.start,
+//              mainAxisSize: MainAxisSize.max,
+//              crossAxisAlignment: CrossAxisAlignment.center,
+//              children: <Widget>[
+//                Padding(
+//                  padding: EdgeInsets.all(8.0),
+//                  child: Icon(Icons.directions_boat,
+//                      color: Color(0xFF000000), size: 24.0),
+//                ),
+//                Text(
+//                  "運行情報",
+//                  style: TextStyle(
+//                      fontSize: 12.0,
+//                      color: Color(0xFF000000),
+//                      fontWeight: FontWeight.w200,
+//                      fontFamily: "Roboto"),
+//                )
+//              ]),
+//          Divider(color: Colors.grey),
+//
+//          /// 2行目
+//          createListRow("竹富島航路"),
+//          Divider(color: Colors.grey),
+//
+//          /// 3行目
+//          createListRow("小浜島航路"),
+//          Divider(color: Colors.grey),
+//
+//          /// 4行目
+//          createListRow("黒島航路"),
+//          Divider(color: Colors.grey),
+//
+//          /// 5行目
+//          createListRow("西表島 大原航路"),
+//          Divider(color: Colors.grey),
+//
+//          /// 6行目
+//          createListRow("西表島 上原航路"),
+//          Divider(color: Colors.grey),
+//
+//          /// 7行目
+//          createListRow("鳩間島航路"),
+//          Divider(color: Colors.grey),
+//
+//          /// 8行目
+//          createListRow("波照間島航路"),
+//        ]),
+//  ),
+//);
 
 // リスト行の作成
 Widget _buildButtonColumn(String label, String status) {
@@ -98,11 +100,15 @@ Widget _buildButtonColumn(String label, String status) {
   );
 }
 
-Widget createListRow(String portName) => Container(
+Widget createListRow(String portName, BuildContext context) => Container(
     margin: const EdgeInsets.fromLTRB(16.0, 0.0, 16.0, 16.0),
     child: InkWell(
         onTap: () {
-          print("tapped");
+          var status = getStatuses();
+          Navigator.push(
+              context,
+              MaterialPageRoute(
+                  builder: (context) => DetailPage(status: status[0])));
         },
         child: Row(
           // 1行目
