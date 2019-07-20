@@ -9,7 +9,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return new MaterialApp(
-      title: 'やいまふに',
+      title: titleText,
       theme: new ThemeData(primaryColor: Color.fromRGBO(58, 66, 86, 1.0)),
       home: new ListPage(title: 'Statuses'),
     );
@@ -120,5 +120,7 @@ class _ListPageState extends State<ListPage> {
 final topAppBar = AppBar(
   elevation: 0.1,
   backgroundColor: Color.fromRGBO(76, 175, 202, 1.0),
-  title: Text("やいまふに"),
+  title: Text(titleText),
 );
+
+const titleText = "やいまふに";
