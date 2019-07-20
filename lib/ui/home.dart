@@ -100,25 +100,30 @@ Widget _buildButtonColumn(String label, String status) {
 
 Widget createListRow(String portName) => Container(
     margin: const EdgeInsets.fromLTRB(16.0, 0.0, 16.0, 16.0),
-    child: Row(
-      // 1行目
-      mainAxisAlignment: MainAxisAlignment.center,
-      crossAxisAlignment: CrossAxisAlignment.center,
-      children: <Widget>[
-        // 1
-        Expanded(
-          flex: 1,
-          child: Align(alignment: Alignment.centerLeft, child: Text(portName)),
-        ),
-        // 2
-        Expanded(
-          flex: 1,
-          child: _buildButtonColumn("安栄観光", "通常運行"),
-        ),
-        // 3
-        Expanded(
-          flex: 1,
-          child: _buildButtonColumn("八観フェ", "通常運行"),
-        ),
-      ],
-    ));
+    child: InkWell(
+        onTap: () {
+          print("tapped");
+        },
+        child: Row(
+          // 1行目
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: <Widget>[
+            // 1
+            Expanded(
+              flex: 1,
+              child:
+                  Align(alignment: Alignment.centerLeft, child: Text(portName)),
+            ),
+            // 2
+            Expanded(
+              flex: 1,
+              child: _buildButtonColumn("安栄観光", "通常運行"),
+            ),
+            // 3
+            Expanded(
+              flex: 1,
+              child: _buildButtonColumn("八観フェ", "通常運行"),
+            ),
+          ],
+        )));
