@@ -152,6 +152,7 @@ class _ListPageState extends State<ListPage> {
               ]),
         ),
       ),
+      bottomNavigationBar: makeBottom,
     );
   }
 }
@@ -164,3 +165,27 @@ final topAppBar = AppBar(
 );
 
 const titleText = "やいまふに";
+
+final makeBottom = Container(
+  height: 55.0,
+  child: BottomAppBar(
+    color: Color.fromRGBO(58, 66, 86, 1.0),
+    child: Row(
+      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+      children: <Widget>[
+        IconButton(
+          icon: Icon(Icons.home, color: Colors.white),
+          onPressed: () {
+            // todo:ホームへ遷移
+          },
+        ),
+        IconButton(
+          icon: Icon(Icons.wb_sunny, color: Colors.white),
+          onPressed: () {
+            //todo:天気へ遷移
+          },
+        )
+      ],
+    ),
+  ),
+);
