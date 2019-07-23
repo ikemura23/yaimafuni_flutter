@@ -124,31 +124,31 @@ class _ListPageState extends State<ListPage> {
                 Divider(color: Colors.grey),
 
                 /// 2行目
-                createListRow("竹富島航路",context),
+                createListRow("竹富島航路", context),
                 Divider(color: Colors.grey),
 
                 /// 3行目
-                createListRow("小浜島航路",context),
+                createListRow("小浜島航路", context),
                 Divider(color: Colors.grey),
 
                 /// 4行目
-                createListRow("黒島航路",context),
+                createListRow("黒島航路", context),
                 Divider(color: Colors.grey),
 
                 /// 5行目
-                createListRow("西表島 大原航路",context),
+                createListRow("西表島 大原航路", context),
                 Divider(color: Colors.grey),
 
                 /// 6行目
-                createListRow("西表島 上原航路",context),
+                createListRow("西表島 上原航路", context),
                 Divider(color: Colors.grey),
 
                 /// 7行目
-                createListRow("鳩間島航路",context),
+                createListRow("鳩間島航路", context),
                 Divider(color: Colors.grey),
 
                 /// 8行目
-                createListRow("波照間島航路",context),
+                createListRow("波照間島航路", context),
               ]),
         ),
       ),
