@@ -49,46 +49,84 @@ final topAppBar = AppBar(
 final mainPage = SingleChildScrollView(
   scrollDirection: Axis.vertical,
   padding: EdgeInsets.all(0.0),
-  child: Card(
+  child: Column(
+      mainAxisAlignment: MainAxisAlignment.start,
+      mainAxisSize: MainAxisSize.max,
+      children: <Widget>[
+        SpaceBox.height(8),
+        mainStatus,
+        SpaceBox.height(8),
+        timeTable
+      ]),
+);
+
+/// メインステータス
+final mainStatus = Card(
     elevation: 8.0,
     margin: EdgeInsets.symmetric(horizontal: 10.0, vertical: 6.0),
-    child: Column(
+    child: Row(
         mainAxisAlignment: MainAxisAlignment.start,
-        mainAxisSize: MainAxisSize.max,
+        mainAxisSize: MainAxisSize.min,
         children: <Widget>[
-          Row(
-              mainAxisAlignment: MainAxisAlignment.start,
-              mainAxisSize: MainAxisSize.min,
-              children: <Widget>[
-                Padding(
+          Padding(
+            padding: EdgeInsets.all(8.0),
+            child: Text(
+              "西表島航路",
+              style: TextStyle(
+                fontSize: 16.0,
+                color: Colors.black87,
+              ),
+            ),
+          ),
+          Expanded(
+              flex: 1,
+              child: Align(
+                alignment: Alignment.centerRight,
+                child: Padding(
                   padding: EdgeInsets.all(8.0),
                   child: Text(
-                    "西表島航路",
+                    "通常運行",
                     style: TextStyle(
                       fontSize: 16.0,
                       color: Colors.black87,
                     ),
                   ),
                 ),
-                Expanded(
-                    flex: 1,
-                    child: Align(
-                      alignment: Alignment.centerRight,
-                      child: Padding(
-                        padding: EdgeInsets.all(8.0),
-                        child: Text(
-                          "通常運行",
-                          style: TextStyle(
-                            fontSize: 16.0,
-                            color: Colors.black87,
-                          ),
-                        ),
-                      ),
-                    )),
+              )),
 //                    new Expanded()
-              ])
-        ]),
-  ),
-);
+        ]));
+
+/// 時刻表
+final timeTable = Card(
+    elevation: 8.0,
+    margin: EdgeInsets.symmetric(horizontal: 10.0, vertical: 6.0),
+    child: Row(
+        mainAxisAlignment: MainAxisAlignment.start,
+        mainAxisSize: MainAxisSize.min,
+        children: <Widget>[
+          Expanded(
+              child: Align(
+                alignment: Alignment.centerLeft,
+                child: Padding(
+                  padding: EdgeInsets.all(8.0),
+                  child: Text(
+                    "時刻表",
+                    style: TextStyle(
+                      fontSize: 16.0,
+                      color: Colors.black87,
+                    ),
+                  ),
+                ),
+              )),
+        ]));
+
+class SpaceBox extends SizedBox {
+  SpaceBox({double width = 8, double height = 8})
+      : super(width: width, height: height);
+
+  SpaceBox.width([double value = 8]) : super(width: value);
+
+  SpaceBox.height([double value = 8]) : super(height: value);
+}
 
 const titleText = "やいまふに";
