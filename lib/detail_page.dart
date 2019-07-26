@@ -69,7 +69,8 @@ final mainStatus = Card(
         mainAxisSize: MainAxisSize.min,
         children: <Widget>[
           Padding(
-            padding: EdgeInsets.all(8.0),
+            padding:
+                EdgeInsets.only(left: 8.0, right: 8.0, top: 16.0, bottom: 16.0),
             child: Text(
               "西表島航路",
               style: TextStyle(
@@ -82,13 +83,18 @@ final mainStatus = Card(
               flex: 1,
               child: Align(
                 alignment: Alignment.centerRight,
-                child: Padding(
+                child: Container(
+                  margin: EdgeInsets.all(8.0),
                   padding: EdgeInsets.all(8.0),
+                  decoration: BoxDecoration(
+                    color: Colors.indigo,
+                    borderRadius: BorderRadius.all(Radius.circular(4.0)),
+                  ),
                   child: Text(
                     "通常運行",
                     style: TextStyle(
                       fontSize: 16.0,
-                      color: Colors.black87,
+                      color: Colors.white,
                     ),
                   ),
                 ),
@@ -106,18 +112,18 @@ final timeTable = Card(
         children: <Widget>[
           Expanded(
               child: Align(
-                alignment: Alignment.centerLeft,
-                child: Padding(
-                  padding: EdgeInsets.all(8.0),
-                  child: Text(
-                    "時刻表",
-                    style: TextStyle(
-                      fontSize: 16.0,
-                      color: Colors.black87,
-                    ),
-                  ),
+            alignment: Alignment.centerLeft,
+            child: Padding(
+              padding: EdgeInsets.all(8.0),
+              child: Text(
+                "時刻表",
+                style: TextStyle(
+                  fontSize: 16.0,
+                  color: Colors.black87,
                 ),
-              )),
+              ),
+            ),
+          )),
         ]));
 
 class SpaceBox extends SizedBox {
