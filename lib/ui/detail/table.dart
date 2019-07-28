@@ -5,8 +5,7 @@ final timeTable = Card(
     elevation: 8.0,
     margin: EdgeInsets.symmetric(horizontal: 10.0, vertical: 6.0),
     child: Column(
-        mainAxisAlignment: MainAxisAlignment.start,
-        mainAxisSize: MainAxisSize.min,
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[_tableTitle, _header]));
 
 /// タイトル
@@ -14,10 +13,6 @@ final _tableTitle = Container(
   padding: EdgeInsets.all(8),
   child: Text(
     "時刻表",
-    style: TextStyle(
-      fontSize: 16.0,
-      color: Colors.black87,
-    ),
   ),
 );
 
