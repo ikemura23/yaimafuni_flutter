@@ -25,14 +25,20 @@ final _header = Row(
         child: Container(
           padding: EdgeInsets.all(8.0),
           color: Colors.indigo,
-          child: Text("石垣発"),
+          child: Text(
+            "石垣発",
+            style: TextStyle(color: Colors.white),
+          ),
         ),
       ),
       Expanded(
         child: Container(
           padding: EdgeInsets.all(8.0),
           color: Colors.indigo,
-          child: Text("西表発"),
+          child: Text(
+            "西表発",
+            style: TextStyle(color: Colors.white),
+          ),
         ),
       ),
     ]);
