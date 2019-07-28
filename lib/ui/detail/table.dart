@@ -4,22 +4,40 @@ import 'package:flutter/material.dart';
 final timeTable = Card(
     elevation: 8.0,
     margin: EdgeInsets.symmetric(horizontal: 10.0, vertical: 6.0),
-    child: Row(
+    child: Column(
         mainAxisAlignment: MainAxisAlignment.start,
         mainAxisSize: MainAxisSize.min,
-        children: <Widget>[
-          Expanded(
-              child: Align(
-                alignment: Alignment.centerLeft,
-                child: Padding(
-                  padding: EdgeInsets.all(8.0),
-                  child: Text(
-                    "時刻表",
-                    style: TextStyle(
-                      fontSize: 16.0,
-                      color: Colors.black87,
-                    ),
-                  ),
-                ),
-              )),
-        ]));
+        children: <Widget>[_tableTitle, _header]));
+
+/// タイトル
+final _tableTitle = Container(
+  padding: EdgeInsets.all(8),
+  child: Text(
+    "時刻表",
+    style: TextStyle(
+      fontSize: 16.0,
+      color: Colors.black87,
+    ),
+  ),
+);
+
+/// ヘッダー
+final _header = Row(
+    mainAxisAlignment: MainAxisAlignment.center,
+    mainAxisSize: MainAxisSize.min,
+    children: <Widget>[
+      Expanded(
+        child: Container(
+          padding: EdgeInsets.all(8.0),
+          color: Colors.indigo,
+          child: Text("石垣発"),
+        ),
+      ),
+      Expanded(
+        child: Container(
+          padding: EdgeInsets.all(8.0),
+          color: Colors.indigo,
+          child: Text("西表発"),
+        ),
+      ),
+    ]);
