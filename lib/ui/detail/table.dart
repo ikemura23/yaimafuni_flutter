@@ -4,9 +4,12 @@ import 'package:flutter/material.dart';
 final timeTable = Card(
     elevation: 8.0,
     margin: EdgeInsets.symmetric(horizontal: 10.0, vertical: 6.0),
-    child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: <Widget>[_tableTitle, _header]));
+    child:
+        Column(crossAxisAlignment: CrossAxisAlignment.start, children: <Widget>[
+      _tableTitle,
+      _header,
+      _listItem,
+    ]));
 
 /// タイトル
 final _tableTitle = Container(
@@ -42,3 +45,40 @@ final _header = Row(
         ),
       ),
     ]);
+
+final _listItem = Row(
+  mainAxisAlignment: MainAxisAlignment.center,
+  children: <Widget>[
+    Expanded(
+      child: Container(
+        padding: EdgeInsets.all(8),
+        child: Text("10:00"),
+      ),
+    ),
+    Expanded(
+      child: Container(
+        padding: EdgeInsets.all(8),
+        child: Text(
+          "通常運行",
+          style: TextStyle(color: Colors.indigo),
+        ),
+      ),
+    ),
+    VerticalDivider(color: Colors.grey,),
+    Expanded(
+      child: Container(
+        padding: EdgeInsets.all(8),
+        child: Text("10:00"),
+      ),
+    ),
+    Expanded(
+      child: Container(
+        padding: EdgeInsets.all(8),
+        child: Text(
+          "通常運行",
+          style: TextStyle(color: Colors.indigo),
+        ),
+      ),
+    ),
+  ],
+);
