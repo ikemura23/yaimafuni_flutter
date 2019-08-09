@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_yaimafuni/model/liner_status.dart';
 import 'package:flutter_yaimafuni/ui/detail/table.dart';
 
-
 class DetailPage extends StatelessWidget {
   final Status status;
 
@@ -66,43 +65,54 @@ final mainPage = SingleChildScrollView(
 final mainStatus = Card(
     elevation: 8.0,
     margin: EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
-    child: Row(
-        mainAxisAlignment: MainAxisAlignment.start,
-        mainAxisSize: MainAxisSize.min,
-        children: <Widget>[
-          Padding(
-            padding:
-                EdgeInsets.all(16),
-            child: Text(
-              "西表島航路",
-              style: TextStyle(
-                fontSize: 16.0,
-                color: Colors.black87,
-              ),
-            ),
-          ),
-          Expanded(
-              flex: 1,
-              child: Align(
-                alignment: Alignment.centerRight,
-                child: Container(
-                  margin: EdgeInsets.all(8.0),
-                  padding: EdgeInsets.all(8.0),
-                  decoration: BoxDecoration(
-                    color: Colors.indigo,
-                    borderRadius: BorderRadius.all(Radius.circular(4.0)),
-                  ),
-                  child: Text(
-                    "通常運行",
-                    style: TextStyle(
-                      fontSize: 16.0,
-                      color: Colors.white,
-                    ),
+    child: Column(
+      children: <Widget>[
+        Row(
+            mainAxisAlignment: MainAxisAlignment.start,
+            mainAxisSize: MainAxisSize.min,
+            children: <Widget>[
+              Padding(
+                padding: EdgeInsets.all(16),
+                child: Text(
+                  "西表島航路",
+                  style: TextStyle(
+                    fontSize: 16.0,
+                    color: Colors.black87,
                   ),
                 ),
-              )),
-//                    new Expanded()
-        ]));
+              ),
+              Expanded(
+                  flex: 1,
+                  child: Align(
+                    alignment: Alignment.centerRight,
+                    child: Container(
+                      margin: EdgeInsets.all(8.0),
+                      padding: EdgeInsets.all(8.0),
+                      decoration: BoxDecoration(
+                        color: Colors.indigo,
+                        borderRadius: BorderRadius.all(Radius.circular(4.0)),
+                      ),
+                      child: Text(
+                        "通常運行",
+                        style: TextStyle(
+                          fontSize: 16.0,
+                          color: Colors.white,
+                        ),
+                      ),
+                    ),
+                  )),
+            ]),
+        Padding(
+          padding: EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
+          child: Container(
+            child: Text(
+              "台風９号の影響による会場時化のため、欠航便があります。\n貨客船「ぱいかじ」、運行いたします。",
+              style: TextStyle(color: Colors.grey.shade600),
+            ),
+          ),
+        )
+      ],
+    ));
 
 class SpaceBox extends SizedBox {
   SpaceBox({double width = 8, double height = 8})
