@@ -65,14 +65,14 @@ final mainPage = SingleChildScrollView(
 /// メインステータス
 final mainStatus = Card(
     elevation: 8.0,
-    margin: EdgeInsets.symmetric(horizontal: 10.0, vertical: 6.0),
+    margin: EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
     child: Row(
         mainAxisAlignment: MainAxisAlignment.start,
         mainAxisSize: MainAxisSize.min,
         children: <Widget>[
           Padding(
             padding:
-                EdgeInsets.only(left: 8.0, right: 8.0, top: 16.0, bottom: 16.0),
+                EdgeInsets.all(16),
             child: Text(
               "西表島航路",
               style: TextStyle(
