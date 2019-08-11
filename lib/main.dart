@@ -3,16 +3,16 @@ import 'package:flutter_yaimafuni/detail_page.dart';
 import 'package:flutter_yaimafuni/model/liner_status.dart';
 import 'package:flutter_yaimafuni/ui/home.dart';
 
-void main() => runApp(new MyApp());
+void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return new MaterialApp(
+    return MaterialApp(
       title: titleText,
-      theme: new ThemeData(primaryColor: Color.fromRGBO(58, 66, 86, 1.0)),
-      home: new ListPage(title: 'Statuses'),
+      theme: ThemeData(primaryColor: Color.fromRGBO(58, 66, 86, 1.0)),
+      home: ListPage(title: 'Statuses'),
     );
   }
 }
