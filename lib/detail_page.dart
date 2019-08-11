@@ -57,7 +57,8 @@ final mainPage = SingleChildScrollView(
         SpaceBox.height(8),
         mainStatus,
         SpaceBox.height(8),
-        timeTable
+        timeTable,
+        SpaceBox.height(8),
       ]),
 );
 
