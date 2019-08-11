@@ -30,9 +30,7 @@ class DetailPage extends StatelessWidget {
         ),
         body: TabBarView(children: <Widget>[
           mainPage,
-          Container(
-            color: Colors.orange,
-          ),
+          mainPage,
         ]),
       ),
     ));
