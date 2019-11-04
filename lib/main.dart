@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_yaimafuni/detail_page.dart';
+import 'package:flutter_yaimafuni/detail_screen.dart';
 import 'package:flutter_yaimafuni/model/liner_status.dart';
 import 'package:flutter_yaimafuni/ui/home.dart';
 
@@ -73,7 +73,7 @@ class _HomeScreen extends State<HomeScreen> {
             Navigator.push(
                 context,
                 MaterialPageRoute(
-                    builder: (context) => DetailPage(status: status)));
+                    builder: (context) => DetailScreen(status: status)));
           },
         );
 

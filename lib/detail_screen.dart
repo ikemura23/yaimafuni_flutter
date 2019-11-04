@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_yaimafuni/model/liner_status.dart';
 import 'package:flutter_yaimafuni/ui/detail/table.dart';
 
-class DetailPage extends StatelessWidget {
+class DetailScreen extends StatelessWidget {
   final Status status;
 
-  DetailPage({Key key, this.status}) : super(key: key);
+  DetailScreen({Key key, this.status}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

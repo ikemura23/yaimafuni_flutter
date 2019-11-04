@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_yaimafuni/detail_page.dart';
+import 'package:flutter_yaimafuni/detail_screen.dart';
 import 'package:flutter_yaimafuni/model/liner_status.dart';
 
 // リスト行の作成
@@ -45,7 +45,7 @@ Widget createListRow(String portName, BuildContext context) => Container(
           Navigator.push(
               context,
               MaterialPageRoute(
-                  builder: (context) => DetailPage(status: status[0])));
+                  builder: (context) => DetailScreen(status: status[0])));
         },
         child: Row(
           // 1行目
