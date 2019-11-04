@@ -12,7 +12,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: titleText,
       theme: ThemeData(primaryColor: Color.fromRGBO(58, 66, 86, 1.0)),
-      home: ListPage(title: 'Statuses'),
+      home: HomeScreen(title: 'Statuses'),
     );
   }
 }
@@ -20,16 +20,16 @@ class MyApp extends StatelessWidget {
 /*
  * リスト
  */
-class ListPage extends StatefulWidget {
-  ListPage({Key key, this.title}) : super(key: key);
+class HomeScreen extends StatefulWidget {
+  HomeScreen({Key key, this.title}) : super(key: key);
 
   final String title;
 
   @override
-  _ListPageState createState() => _ListPageState();
+  _HomeScreen createState() => _HomeScreen();
 }
 
-class _ListPageState extends State<ListPage> {
+class _HomeScreen extends State<HomeScreen> {
   List statuses;
 
   @override
